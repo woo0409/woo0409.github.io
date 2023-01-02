@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>图像的几何变换 | Xinxin的博客网站</title><meta name="author" content="许铭鑫"><meta name="copyright" content="许铭鑫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、图像的几何变换图像的几何变换是指用数学建模的方法来描述图像位置、大小形状等变化的方法，通过数学建模，实现对数字图像进行几何变换的处理。下面来介绍几种常用的图像几何变换。 二、图像几何变换的方法对图像位置进行变换 图像的平移 将图像中所有的点按照指定的平移量水平或者垂直移动。 图像平移其实属于仿射变换的一种，因为使用的很多所以将其单独拿出来作为一个知识点，它所用到的函数就是仿射变换的函数： 1d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像的几何变换">
+<meta property="og:url" content="http://example.com/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/index.html">
+<meta property="og:site_name" content="Xinxin的博客网站">
+<meta property="og:description" content="一、图像的几何变换图像的几何变换是指用数学建模的方法来描述图像位置、大小形状等变化的方法，通过数学建模，实现对数字图像进行几何变换的处理。下面来介绍几种常用的图像几何变换。 二、图像几何变换的方法对图像位置进行变换 图像的平移 将图像中所有的点按照指定的平移量水平或者垂直移动。 图像平移其实属于仿射变换的一种，因为使用的很多所以将其单独拿出来作为一个知识点，它所用到的函数就是仿射变换的函数： 1d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/desk.jpg">
+<meta property="article:published_time" content="2022-12-25T10:51:26.000Z">
+<meta property="article:modified_time" content="2022-12-25T14:45:18.994Z">
+<meta property="article:author" content="许铭鑫">
+<meta property="article:tag" content="图像的几何变换">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/desk.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":88},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '图像的几何变换',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-25 22:45:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/wxHead.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><i class="fa-fw fa-solid fa-panorama"></i><span> 数字图像处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa-solid fa-link"></i><span> 友情链接</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../img/desk.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xinxin的博客网站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><i class="fa-fw fa-solid fa-panorama"></i><span> 数字图像处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa-solid fa-link"></i><span> 友情链接</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">图像的几何变换</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-25T10:51:26.000Z" title="发表于 2022-12-25 18:51:26">2022-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-25T14:45:18.994Z" title="更新于 2022-12-25 22:45:18">2022-12-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图像的几何变换"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、图像的几何变换"><a href="#一、图像的几何变换" class="headerlink" title="一、图像的几何变换"></a>一、图像的几何变换</h1><p>图像的几何变换是指用数学建模的方法来描述图像位置、大小形状等变化的方法，通过数学建模，实现对数字图像进行几何变换的处理。下面来介绍几种常用的图像几何变换。</p>
+<h1 id="二、图像几何变换的方法"><a href="#二、图像几何变换的方法" class="headerlink" title="二、图像几何变换的方法"></a>二、图像几何变换的方法</h1><h2 id="对图像位置进行变换"><a href="#对图像位置进行变换" class="headerlink" title="对图像位置进行变换"></a>对图像位置进行变换</h2><ol>
+<li><p>图像的平移</p>
+<p>将图像中所有的点按照指定的平移量水平或者垂直移动。</p>
+<p>图像平移其实属于<strong>仿射变换</strong>的一种，因为使用的很多所以将其单独拿出来作为一个知识点，它所用到的函数就是仿射变换的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst	= cv2.warpAffine( src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]]	)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ol>
+<li><strong>src</strong>：输入图像。</li>
+<li><strong>M</strong>：2×3的变换矩阵，一般反映平移或旋转的关系。</li>
+<li><strong>dsize</strong>：输出图像大小。</li>
+<li><strong>flags</strong>：插值方法的组合（int类型），默认为：<code>cv2.INTER_LINEAR</code>（线性插值）.</li>
+</ol>
+<p>下面还会有多处需要用到这个函数只是用不同的模板。</p>
+<p>下面是示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">translation</span>(<span class="params">img, x: <span class="built_in">int</span>, y: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    图像的平移</span></span><br><span class="line"><span class="string">    :param img:传入图像</span></span><br><span class="line"><span class="string">    :param x: x方向偏移值</span></span><br><span class="line"><span class="string">    :param y: y方向偏移值</span></span><br><span class="line"><span class="string">    :return: 返回输出图像</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    rows, cols, channels = img.shape</span><br><span class="line">    M = np.float32([[<span class="number">1</span>, <span class="number">0</span>, x], [<span class="number">0</span>, <span class="number">1</span>, y]])</span><br><span class="line">    res = cv2.warpAffine(img, M, (cols * <span class="number">2</span>, rows * <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">path = <span class="string">&quot;../Pic/card.jpg&quot;</span></span><br><span class="line">img = cv2.imread(path)</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">	img_translation = translation(img, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">	cv2.imshow(<span class="string">&quot;Img&quot;</span>, img_translation)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>下面是运行结果图</p>
+<p><img src="/../img/%E5%B9%B3%E7%A7%BB.jpg" alt="平移" title="平移"> </p>
+</li>
+<li><p>图像的镜像</p>
+<p>图像的镜像翻转指的是将图像以某条中轴线为中心进行镜像对换。图像的镜像翻转根据翻转的方向可分为水平镜像翻转、垂直镜像翻转和对角镜像翻转3种。</p>
+<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=OpenCV&spm=1001.2101.3001.7020">OpenCV</a>的函数flip()可以实现图像沿x轴翻转、沿y轴翻转、同时沿x轴和y轴翻转，从而实现图像的水平镜像和垂直镜像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv.flip(src, flipCode[, dst])</span><br></pre></td></tr></table></figure>
+
+<p>参数src和dst没什么好说的。<br>参数flipCode需要说明一下：<br>如果flipCode的值大于0，表示绕y轴翻转，对应于实现图像的水平镜像；<br>如果flipCode的值等于0，表示绕x轴翻转，对应于实现图像的垂直镜像；<br>如果flipCode的值小于0，表示同时绕x轴和y轴翻转，对应于同时实现图像的垂直镜像和水平镜像.</p>
+<p>示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&quot;../Pic/card.jpg&quot;</span></span><br><span class="line">img = cv2.imread(path)</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">	<span class="comment"># 图片-水平镜像</span></span><br><span class="line">    img_H = cv2.flip(img, <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 图片-垂直镜像</span></span><br><span class="line">    img_V = cv2.flip(img, <span class="number">0</span>)</span><br><span class="line">    <span class="comment"># 图片-对角镜像</span></span><br><span class="line">    img_HV = cv2.flip(img, -<span class="number">1</span>)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img_H&quot;</span>, img_H)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img_V&quot;</span>, img_V)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img_HV&quot;</span>, img_HV)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>图像的旋转</p>
+<p>以图像的中心为原点，旋转一定的角度，也就是将图像上的所有像素都旋转一个相同的角度。旋转后图像的大小一般会改变，即可以把转出显示区域的图像截去，或者扩大图像范围来显示图像的所有部分。</p>
+<p>进行图像的旋转操作首先需要求出图像旋转的变换矩阵，仍然是用OpenCV库中的getRotationMatrix2D函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">rotation</span>(<span class="params">img, angle: <span class="built_in">int</span> = <span class="number">90</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    图像的旋转操作</span></span><br><span class="line"><span class="string">    :param img:输入图像</span></span><br><span class="line"><span class="string">    :param angle: 旋转角度</span></span><br><span class="line"><span class="string">    :return: 返回输出图像</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    rows, cols = img.shape[:<span class="number">2</span>]</span><br><span class="line">    <span class="comment"># 参数1：旋转中心，参数2：旋转角度，参数3：缩放因子</span></span><br><span class="line">    <span class="comment"># 参数3正为逆时针，负值为正时针</span></span><br><span class="line">    center = (cols/<span class="number">2</span>, rows/<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 求图像旋转变换矩阵</span></span><br><span class="line">    M = cv2.getRotationMatrix2D(center, angle, <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># print(M)</span></span><br><span class="line">    <span class="comment"># 第三个参数是输出图像的尺寸中心</span></span><br><span class="line">    <span class="comment"># dst = cv2.warpAffine(img, M, (cols, rows))</span></span><br><span class="line">    dst = cv2.warpAffine(img, M, (cols, rows), borderValue=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">    <span class="keyword">return</span> dst</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    img_rotation = rotation(img)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img_dst&quot;</span>, img_rotation)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果图如下：</p>
+<p><img src="/../img/%E6%97%8B%E8%BD%AC.jpg" alt="旋转" title="旋转操作"></p>
+</li>
+</ol>
+<h2 id="对图像形状进行变换"><a href="#对图像形状进行变换" class="headerlink" title="对图像形状进行变换"></a>对图像形状进行变换</h2><ol>
+<li><p>图像的缩放</p>
+<p>缩小图像称为下采样（subsampled）或降采样(downsampled)；放大图像称为上采样（upsampled），主要目的是得到更高分辨率的图像。</p>
+<p>图像缩放是指图像大小按指定的比例进行放大或缩小。</p>
+<p>opencv中用到的函数是resize</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst	= cv2.resize( src, dsize[, dst[, fx[, fy[, interpolation]]]]	)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ol>
+<li><strong>src</strong>：输入图像。</li>
+<li><strong>dsize</strong>：输出图像的尺寸，与下面的比例因子二选一。</li>
+<li><strong>fx</strong>：沿水平轴的比例因子。</li>
+<li><strong>fy</strong>：沿垂直轴的比例因子。</li>
+<li><strong>interpolation</strong>：插值方法，默认的为<code>cv2.INTER_NEAREST</code>（最近邻插值）</li>
+</ol>
+<p>示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&quot;../Pic/card.jpg&quot;</span></span><br><span class="line">img = cv2.imread(path)</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="comment"># 图像缩放操作</span></span><br><span class="line">    <span class="comment"># 图像有比例缩放，xy轴分别缩放0.6倍</span></span><br><span class="line">    img_resize_1 = cv2.resize(img, <span class="literal">None</span>, fx=<span class="number">1.6</span>, fy=<span class="number">1.6</span>, interpolation=cv2.INTER_CUBIC)</span><br><span class="line">    img_resize_2 = cv2.resize(img, (<span class="number">300</span>, <span class="number">500</span>))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果图如下：</p>
+<p><img src="/../img/%E7%BC%A9%E6%94%BE.jpg" alt="缩放操作" title="缩放操作"></p>
+</li>
+</ol>
+<h2 id="图像的仿射变换"><a href="#图像的仿射变换" class="headerlink" title="图像的仿射变换"></a>图像的仿射变换</h2><p>仿射变换包括<em><strong>平移、旋转、放缩、剪切和反射</strong></em>等，上面的几种变换其实都可以算是仿射变换</p>
+<p>仿射变换是一种二维坐标到二维坐标之间的线性变换，它保持了二维图形的“平直性”（直线经过变换之后依然是直线）和“平行性”（二维图形之间的相对位置关系保持不变，平行线依然是平行线，且直线上点的位置顺序不变）。任意的仿射变换都能表示为乘以一个矩阵(线性变换)，再加上一个向量 (平移) 的形式。</p>
+<p>那除了平移的变换矩阵是比较好确定的，其他变换的M矩阵很难直接写出来，所以OpenCV提供了一个求仿射变换矩阵的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval = cv2.getAffineTransform(src, dst )</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ol>
+<li><strong>src</strong>：原图像中<u>三个点的坐标</u>。</li>
+<li><strong>dst</strong>：目标图像中<u>对应的三个点的坐标</u>（变换后）。</li>
+</ol>
+<p>示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Affine</span>(<span class="params">img</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    仿射变换操作</span></span><br><span class="line"><span class="string">    :param img:输入图像</span></span><br><span class="line"><span class="string">    :return:返回输出图像</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    rows, cols, ch = img.shape</span><br><span class="line">    pts1 = np.float32([[<span class="number">129</span>, <span class="number">319</span>], [<span class="number">269</span>, <span class="number">286</span>], [<span class="number">247</span>, <span class="number">579</span>]])</span><br><span class="line">    pts2 = np.float32([[<span class="number">129</span>, <span class="number">319</span>], [<span class="number">229</span>, <span class="number">319</span>], [<span class="number">129</span>, <span class="number">519</span>]])</span><br><span class="line">    <span class="comment"># 求仿射变换矩阵函数</span></span><br><span class="line">    M = cv2.getAffineTransform(pts1, pts2)</span><br><span class="line">    <span class="built_in">print</span>(M)</span><br><span class="line">    <span class="comment"># 图像仿射变换</span></span><br><span class="line">    dst = cv2.warpAffine(img, M, (cols * <span class="number">2</span>, rows * <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> dst</span><br><span class="line">path = <span class="string">&quot;../Pic/card.jpg&quot;</span></span><br><span class="line">img = cv2.imread(path)</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    img_Affine = Affine(img)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img_trans&quot;</span>, img_Affine)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果图如下：</p>
+<p><img src="/../img/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2.jpg" alt="仿射变换" title="仿射变化"></p>
+<h2 id="图像的透视变换"><a href="#图像的透视变换" class="headerlink" title="图像的透视变换"></a>图像的透视变换</h2><p>透视变换本质是将图像投影到一个新的视平面。与仿射变换类似，</p>
+<p>透视变换是将图片投影到一个新的视平面，也称作投影映射。它是二维（x,y）到三维(X,Y,Z)，再到另一个二维(x’,y’)空间的映射。相对于仿射变换，它提供了更大的灵活性，将一个四边形区域映射到另一个四边形区域（不一定是平行四边形）。它不止是线性变换．但也是通过矩阵乘法实现的，使用的是一个3x3的矩阵，矩阵的前两行与仿射矩阵相同(m11,m12,m13,m21,m22,m23)，也实现了线性变换和平移。OpenCV提供了一个求透视变换矩阵的函数 <code>cv2.getPerspectiveTransform</code>，以及进行透视变换操作的函数 <code>cv2.warpPerspective</code>。</p>
+<p>函数 <code>cv2.getPerspectiveTransform</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval = cv2.getPerspectiveTransform(src,dst[,solveMethod])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ol>
+<li><strong>src</strong>：表示透视变换前的4个点的位置。</li>
+<li><strong>dst</strong>：表示透视变换后的4个对应点的位置。</li>
+</ol>
+<p>示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Perspective</span>(<span class="params">img</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    透视变换操作</span></span><br><span class="line"><span class="string">    :param img:输入图像 </span></span><br><span class="line"><span class="string">    :return: 输出图像</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    rows, cols, ch = img.shape</span><br><span class="line">    pts1 = np.float32([[<span class="number">129</span>, <span class="number">319</span>], [<span class="number">269</span>, <span class="number">286</span>], [<span class="number">247</span>, <span class="number">579</span>], [<span class="number">392</span>, <span class="number">507</span>]])</span><br><span class="line">    pts2 = np.float32([[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">250</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">350</span>], [<span class="number">250</span>, <span class="number">350</span>]])</span><br><span class="line">    <span class="comment"># 求仿射变换矩阵函数</span></span><br><span class="line">    M = cv2.getPerspectiveTransform(pts1, pts2)</span><br><span class="line">    <span class="built_in">print</span>(M)</span><br><span class="line">    <span class="comment"># 图像仿射变换</span></span><br><span class="line">    dst = cv2.warpPerspective(img, M, (cols, rows))</span><br><span class="line">    <span class="keyword">return</span> dst</span><br><span class="line">path = <span class="string">&quot;../Pic/card.jpg&quot;</span></span><br><span class="line">img = cv2.imread(path)</span><br><span class="line"><span class="keyword">if</span> img <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    img_Perspective = Perspective(img)[<span class="number">0</span>:<span class="number">350</span>, <span class="number">0</span>:<span class="number">250</span>]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;error&quot;</span>)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果图如下：</p>
+<p><img src="/../img/%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2.jpg" alt="透视变换" title="透视变化"></p>
+<p>参考资料：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40467656/article/details/109030455">(14条消息) OpenCV与图像处理学习四——图像几何变换：平移、缩放、旋转、仿射变换与透视变换_slight smile的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41979513/article/details/97936821">(14条消息) opencv-python图像几何变换(缩放、平移、旋转、仿射变换、透视变换)_JstuCheng的博客-CSDN博客</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">许铭鑫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/">http://example.com/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Xinxin的博客网站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/">图像的几何变换</a></div><div class="post_share"><div class="social-share" data-image="/../img/desk.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/02/%E5%88%9D%E8%AF%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><img class="prev-cover" src="/./img/desk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">初识人工智能</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/"><img class="next-cover" src="/./img/desk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数字图像锐化</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/wxHead.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">许铭鑫</div><div class="author-info__description">Love Yours&Living your life</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/woo0409"><i class="fab fa-github"></i><span>点我看看</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/woo0409" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1669340741@qq.com" target="_blank" title="qq邮箱"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/./img/wx.jpg" target="_blank" title="微信"><i class="fa-brands fa-weixin"></i></a><a class="social-icon" href="/./img/qq.jpg" target="_blank" title="qq"><i class="fa-brands fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">一、图像的几何变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E5%83%8F%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二、图像几何变换的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%9B%BE%E5%83%8F%E4%BD%8D%E7%BD%AE%E8%BF%9B%E8%A1%8C%E5%8F%98%E6%8D%A2"><span class="toc-number">2.1.</span> <span class="toc-text">对图像位置进行变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%9B%BE%E5%83%8F%E5%BD%A2%E7%8A%B6%E8%BF%9B%E8%A1%8C%E5%8F%98%E6%8D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">对图像形状进行变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">图像的仿射变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="toc-number">2.4.</span> <span class="toc-text">图像的透视变换</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/%E5%88%9D%E8%AF%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="初识人工智能"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="初识人工智能"/></a><div class="content"><a class="title" href="/2023/01/02/%E5%88%9D%E8%AF%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="初识人工智能">初识人工智能</a><time datetime="2023-01-02T15:01:25.000Z" title="发表于 2023-01-02 23:01:25">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/" title="图像的几何变换"><img src="/../img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像的几何变换"/></a><div class="content"><a class="title" href="/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/" title="图像的几何变换">图像的几何变换</a><time datetime="2022-12-25T10:51:26.000Z" title="发表于 2022-12-25 18:51:26">2022-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/" title="数字图像锐化"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字图像锐化"/></a><div class="content"><a class="title" href="/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/" title="数字图像锐化">数字图像锐化</a><time datetime="2022-12-24T11:14:24.000Z" title="发表于 2022-12-24 19:14:24">2022-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/22/%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0/" title="图像噪声及去噪"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像噪声及去噪"/></a><div class="content"><a class="title" href="/2022/12/22/%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0/" title="图像噪声及去噪">图像噪声及去噪</a><time datetime="2022-12-22T08:27:45.000Z" title="发表于 2022-12-22 16:27:45">2022-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/21/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" title="数字图像增强"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字图像增强"/></a><div class="content"><a class="title" href="/2022/12/21/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" title="数字图像增强">数字图像增强</a><time datetime="2022-12-21T15:25:17.000Z" title="发表于 2022-12-21 23:25:17">2022-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 许铭鑫</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

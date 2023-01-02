@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>数字图像锐化 | Xinxin的博客网站</title><meta name="author" content="许铭鑫"><meta name="copyright" content="许铭鑫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、什么是图像锐化图像的锐化处理就是针对目标细节。边缘轮廓信息的增强与提取而提出的一种处理方法。图像中个目标的细节以及边缘轮廓都反应在灰度反差上吗图像锐化的作用就是使灰度反差增强从而突出边缘和轮廓信息。 由于锐化处理不仅增强了图像的边缘细节，还会增强图像的噪声，因此在图像进行锐化处理前最好先进行图像的去噪操作。 锐化处理常用的手段是对图像进行微分运算，可分为一阶运算和二阶运算 二、图像锐化方法一阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像锐化">
+<meta property="og:url" content="http://example.com/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/index.html">
+<meta property="og:site_name" content="Xinxin的博客网站">
+<meta property="og:description" content="一、什么是图像锐化图像的锐化处理就是针对目标细节。边缘轮廓信息的增强与提取而提出的一种处理方法。图像中个目标的细节以及边缘轮廓都反应在灰度反差上吗图像锐化的作用就是使灰度反差增强从而突出边缘和轮廓信息。 由于锐化处理不仅增强了图像的边缘细节，还会增强图像的噪声，因此在图像进行锐化处理前最好先进行图像的去噪操作。 锐化处理常用的手段是对图像进行微分运算，可分为一阶运算和二阶运算 二、图像锐化方法一阶">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/desk.jpg">
+<meta property="article:published_time" content="2022-12-24T11:14:24.000Z">
+<meta property="article:modified_time" content="2022-12-24T14:08:31.991Z">
+<meta property="article:author" content="许铭鑫">
+<meta property="article:tag" content="图像锐化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/desk.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":88},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数字图像锐化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-24 22:08:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/wxHead.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><i class="fa-fw fa-solid fa-panorama"></i><span> 数字图像处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa-solid fa-link"></i><span> 友情链接</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/desk.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xinxin的博客网站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><i class="fa-fw fa-solid fa-panorama"></i><span> 数字图像处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa-solid fa-link"></i><span> 友情链接</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数字图像锐化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-24T11:14:24.000Z" title="发表于 2022-12-24 19:14:24">2022-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-24T14:08:31.991Z" title="更新于 2022-12-24 22:08:31">2022-12-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">数字图像处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数字图像锐化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、什么是图像锐化"><a href="#一、什么是图像锐化" class="headerlink" title="一、什么是图像锐化"></a>一、什么是图像锐化</h1><p>图像的锐化处理就是针对目标细节。边缘轮廓信息的增强与提取而提出的一种处理方法。图像中个目标的细节以及边缘轮廓都反应在灰度反差上吗图像锐化的作用就是使灰度反差增强从而突出边缘和轮廓信息。</p>
+<p>由于锐化处理不仅增强了图像的边缘细节，还会增强图像的噪声，因此在图像进行锐化处理前最好先进行图像的去噪操作。</p>
+<p>锐化处理常用的手段是对图像进行微分运算，可分为一阶运算和二阶运算</p>
+<h1 id="二、图像锐化方法"><a href="#二、图像锐化方法" class="headerlink" title="二、图像锐化方法"></a>二、图像锐化方法</h1><h2 id="一阶锐化算法"><a href="#一阶锐化算法" class="headerlink" title="一阶锐化算法"></a>一阶锐化算法</h2><p>一阶锐化算法可以理解为使用一阶微分的方法来进行锐化处理。在图像锐化处理中最常用的一阶微分方法是求梯度，梯度的方向是图像灰度最大变化率的方向，因此可以很好的反应图像在边缘、轮廓上的灰度变化。</p>
+<p>取图像中的某一行作为扫描行，其灰度变化曲线为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190808102048457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaXNodWluaXlhb251bGlh,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>对该灰度变化曲线进行微分，得到一阶微分曲线和二阶微分曲线：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190808104403226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaXNodWluaXlhb251bGlh,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>由图像的灰度变化曲线及其一阶微分和二阶微分可以总结出三种典型的灰度截面特征</p>
+<p><img src="https://img-blog.csdnimg.cn/20190808120328909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaXNodWluaXlhb251bGlh,size_16,color_FFFFFF,t_70" alt="img"></p>
+<blockquote>
+<p>详细介绍可看<a target="_blank" rel="noopener" href="https://blog.csdn.net/baishuiniyaonulia/article/details/98480583">白水baishui</a>的博客</p>
+</blockquote>
+<h3 id="处理方法"><a href="#处理方法" class="headerlink" title="处理方法"></a>处理方法</h3><h4 id="基本梯度处理"><a href="#基本梯度处理" class="headerlink" title="基本梯度处理"></a>基本梯度处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义3 * 3卷积核的大小</span></span><br><span class="line">kernel3 = np.ones((<span class="number">3</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line"><span class="comment"># 梯度梯度锐化处理</span></span><br><span class="line">morphological_gradient_gray = cv2.morphologyEx(gray, cv2.MORPH_GRADIENT, kernel3)   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>处理结果：</p>
+<p><img src="/../img/%E6%A2%AF%E5%BA%A6%E5%A4%84%E7%90%86.jpg" alt="梯度处理" title="梯度处理"></p>
+<p>上面的梯度算子作为一种基本算子具有构造简单。使用方便的特点，但是对于图像，其目标五的边界的拓扑结构是不同，因此在此基础上还有多种一节锐化算子</p>
+<br>
+
+<h4 id="单方向一阶锐化算子"><a href="#单方向一阶锐化算子" class="headerlink" title="单方向一阶锐化算子"></a>单方向一阶锐化算子</h4><p>它的特点是可以反映图像中特定方向的灰度变化情况，而对图像上其他方向的灰度变化不敏感，因此这类算子只能在特定的分析监测方面使用。</p>
+<h4 id="任意方向一阶锐化算子"><a href="#任意方向一阶锐化算子" class="headerlink" title="任意方向一阶锐化算子"></a>任意方向一阶锐化算子</h4><ol>
+<li><p><strong>Roberts算子</strong></p>
+<p>Roberts 算子，又称罗伯茨算子，是一种最简单的算子，是一种利用局部差分算子寻找边缘的算子。他采用对角线方向相邻两象素之差近似梯度幅值检测边缘。</p>
+<p>检测垂直边缘的效果好于斜向边缘，定位精度高，对噪声敏感，无法抑制噪声的影响。</p>
+<p>下面是用opencv库进行处理的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Robert</span>(<span class="params">mat</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Robert算子锐化处理</span></span><br><span class="line"><span class="string">    :param mat:传入图像</span></span><br><span class="line"><span class="string">    :return: 返回处理结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 定义 Roberts 算子</span></span><br><span class="line">    kernel_Roberts_x = np.array([[-<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]], dtype=<span class="built_in">int</span>)</span><br><span class="line">    kernel_Roberts_y = np.array([[<span class="number">0</span>, -<span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>]], dtype=<span class="built_in">int</span>)</span><br><span class="line">    <span class="comment"># 灰度化处理图像</span></span><br><span class="line">    gray = cv2.cvtColor(mat, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># filter2D函数对x和y方向上进行卷积运算</span></span><br><span class="line">    Robert_x = cv2.filter2D(gray, cv2.CV_16S, kernel_Roberts_x)</span><br><span class="line">    Robert_y = cv2.filter2D(gray, cv2.CV_16S, kernel_Roberts_y)</span><br><span class="line">    <span class="comment"># 调用convertScaleAbs()函数计算绝对值，并将图像转换为8位图</span></span><br><span class="line">    abs_Robert_X = cv2.convertScaleAbs(Robert_x)</span><br><span class="line">    abs_Robert_Y = cv2.convertScaleAbs(Robert_y)</span><br><span class="line">    <span class="comment"># 对x和y方向上进行图像融合</span></span><br><span class="line">    img_Roberts = cv2.addWeighted(abs_Robert_X, <span class="number">0.5</span>, abs_Robert_Y, <span class="number">0.5</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> img_Roberts</span><br><span class="line"><span class="comment"># Robert算子锐化处理</span></span><br><span class="line">img_Roberts = sharpen.Robert(temp)</span><br><span class="line">cv2.imshow(<span class="string">&quot;Img Roberts&quot;</span>, img_Roberts)</span><br></pre></td></tr></table></figure>
+
+<p>以下是运行结果图</p>
+<p><img src="/../img/Robert.jpg" alt="Robert" title="Robert算子锐化处理"></p>
+</li>
+<li><p><strong>Sobel算子</strong></p>
+<p>Sobel 算子是一种离散的微分算子，该算子结合了高斯平滑和微分求导运算。该算子利用局部差分寻找边缘，计算所得的是一个梯度的近似值</p>
+<p>Socel算子实质上是对图像进行差分和滤波运算，它通过对待处理像素的上下左右四周相邻的像素进行灰度加权运算，突出图像的边缘信息，并且对噪声有一定的平滑作用。</p>
+<p>下面出处理的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Sobel</span>(<span class="params">mat</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Sobel算子锐化处理</span></span><br><span class="line"><span class="string">    :param mat:传入图像</span></span><br><span class="line"><span class="string">    :return: 返回处理结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 灰度化处理图像</span></span><br><span class="line">    gray = cv2.cvtColor(mat, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># Sobel算子锐化处理</span></span><br><span class="line">    sobelx = cv2.convertScaleAbs(cv2.Sobel(gray, cv2.CV_64F, <span class="number">1</span>, <span class="number">0</span>))  <span class="comment"># 转回uint8</span></span><br><span class="line">    sobely = cv2.convertScaleAbs(cv2.Sobel(gray, cv2.CV_64F, <span class="number">0</span>, <span class="number">1</span>))  <span class="comment"># 转回uint8</span></span><br><span class="line">    img_Sobel = cv2.addWeighted(sobelx, <span class="number">0.5</span>, sobely, <span class="number">0.5</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> img_Sobel</span><br><span class="line"><span class="comment"># Sobel算子锐化处理</span></span><br><span class="line">img_Sobel = sharpen.Sobel(temp)                                           cv2.imshow(<span class="string">&quot;Img Sobel&quot;</span>, img_Sobel)</span><br></pre></td></tr></table></figure>
+
+<p>下面是运算结果图</p>
+<p><img src="/../img/Sobel.jpg" alt="Sobel" title="Sobel算子锐化处理"></p>
+</li>
+<li><p><strong>Priwitt算子</strong></p>
+<p>Prewitt 算子是一种一阶微分算子的边缘检测，利用像素点上下、左右邻点的灰度差，在边缘处达到极值检测边缘，去掉部分伪边缘，对噪声具有平滑作用。</p>
+<p>由于 Prewitt 算子采用 3 * 3 模板对区域内的像素值进行计算，而 Robert 算子的模板为 2 * 2 ，故 Prewitt 算子的边缘检测结果在水平方向和垂直方向均比 Robert 算子更加明显。Prewitt算子适合用来识别噪声较多、灰度渐变的图像，它具有较好的抗干扰性。</p>
+<p>下面是处理代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Prewitt</span>(<span class="params">mat</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Prewitt算子锐化处理</span></span><br><span class="line"><span class="string">    :param mat:传入图像</span></span><br><span class="line"><span class="string">    :return: 返回处理结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># Prewitt 算子</span></span><br><span class="line">    kernel_Prewitt_x = np.array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>]], dtype=<span class="built_in">int</span>)</span><br><span class="line">    kernel_Prewitt_y = np.array([[-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]], dtype=<span class="built_in">int</span>)</span><br><span class="line">    <span class="comment"># 灰度化处理图像</span></span><br><span class="line">    gray = cv2.cvtColor(mat, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># Prewitt算子锐化处理</span></span><br><span class="line">    x = cv2.filter2D(gray, cv2.CV_16S, kernel_Prewitt_x)</span><br><span class="line">    y = cv2.filter2D(gray, cv2.CV_16S, kernel_Prewitt_y)</span><br><span class="line">    abs_Prewitt_X = cv2.convertScaleAbs(x)</span><br><span class="line">    abs_Prewitt_Y = cv2.convertScaleAbs(y)</span><br><span class="line">    Img_Prewitt = cv2.addWeighted(abs_Prewitt_X, <span class="number">0.5</span>, abs_Prewitt_Y, <span class="number">0.5</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> Img_Prewitt</span><br><span class="line"><span class="comment"># Prewitt算子锐化处理</span></span><br><span class="line">img_Prewitt = sharpen.Prewitt(temp)                                       cv2.imshow(<span class="string">&quot;Img Prewitt&quot;</span>, img_Prewitt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>下面是运行结果图</p>
+<p><img src="/../img/Prewitt.jpg" alt="Prewitt" title="Prewitt算子锐化处理"></p>
+</li>
+</ol>
+<h2 id="二阶锐化算法"><a href="#二阶锐化算法" class="headerlink" title="二阶锐化算法"></a>二阶锐化算法</h2><p>和一阶锐化算法相同，二阶瑞华算法也可以有效地得到图像的细节和边缘信息，使用二阶微分可以能到更丰富的景物细节，同时对噪声的敏感程度也更明显。</p>
+<h3 id="处理方法-1"><a href="#处理方法-1" class="headerlink" title="处理方法"></a>处理方法</h3><ol>
+<li><p><strong>Laplacian算子</strong></p>
+<p>拉普拉斯（ Laplacian ）算子是 n 维欧几里德空间中的一个二阶微分算子，常用于图像增强领域和边缘提取。</p>
+<p>Laplacian 算子的核心思想：判断图像中心像素灰度值与它周围其他像素的灰度值，如果中心像素的灰度更高，则提升中心像素的灰度；反之降低中心像素的灰度，从而实现图像锐化操作。</p>
+<p>使用Laplacian锐化算子检测细线型细节可以获得比较好的效果，但与此同时，它对噪声的敏感度也比较大</p>
+<p>下面是用代码进行处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Laplacian</span>(<span class="params">mat</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Laplacian 锐化算子进行锐化处理</span></span><br><span class="line"><span class="string">    :param mat:传入图像</span></span><br><span class="line"><span class="string">    :return: 返回处理结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 灰度化处理图像</span></span><br><span class="line">    grayImage = cv2.cvtColor(mat, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># Laplacian</span></span><br><span class="line">    dst = cv2.Laplacian(grayImage, cv2.CV_16S, ksize=<span class="number">3</span>)</span><br><span class="line">    Laplacian = cv2.convertScaleAbs(dst)</span><br><span class="line">    <span class="keyword">return</span> Laplacian</span><br><span class="line"><span class="comment"># Laplacian算子锐化处理</span></span><br><span class="line">img_Laplacian = sharpen.Laplacian(temp)    </span><br><span class="line">cv2.imshow(<span class="string">&quot;Img Laplacian&quot;</span>, img_Laplacian)</span><br></pre></td></tr></table></figure>
+
+<p>下面是运行结果图</p>
+<p><img src="/../img/Laplacian.jpg" alt="Laplacian" title="Laplacian算子锐化处理"></p>
+</li>
+<li><p><strong>LOG算子</strong></p>
+<p>LoG算子是由拉普拉斯算子改进而来。拉普拉斯算子是一个单纯的二阶导数算子，是一个标量，具有线性、位移不变性，其传函在频域空间的原点为0。所有经过拉普拉斯算子滤波的图像具有零平均灰度。</p>
+<p>可以说它将高斯平滑滤波和拉普拉斯锐化滤波很好地结合起来，是对噪声的抑制和对边缘的检测两方面来考虑的。</p>
+<p>它的优点是对噪声进行了滤波，缺点是对原图的边缘也进行了平滑处理，其中高斯函数的方差直接影响边缘检测的结果。由于LOG算子于人类视觉的数学模型非常类似，因此其在图像处理领域得到广泛应用。</p>
+<p>下面是处理的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Laplacian</span>(<span class="params">mat</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Laplacian 锐化算子进行锐化处理</span></span><br><span class="line"><span class="string">    :param mat:传入图像</span></span><br><span class="line"><span class="string">    :return: 返回处理结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 灰度化处理图像</span></span><br><span class="line">    grayImage = cv2.cvtColor(mat, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># Laplacian</span></span><br><span class="line">    dst = cv2.Laplacian(grayImage, cv2.CV_16S, ksize=<span class="number">3</span>)</span><br><span class="line">    Laplacian = cv2.convertScaleAbs(dst)</span><br><span class="line">    <span class="keyword">return</span> Laplacian</span><br><span class="line"><span class="comment"># LOG算子锐化处理</span></span><br><span class="line">img_LOG = sharpen.Laplacian(img_blur_gauss)</span><br><span class="line">cv2.imshow(<span class="string">&quot;Img LOG&quot;</span>, img_LOG)</span><br></pre></td></tr></table></figure>
+
+<p>下面是运行结果图</p>
+<p><img src="/../img/LOG.jpg" alt="LOG" title="LOG算子锐化处理"></p>
+</li>
+</ol>
+<h2 id="Canny算子（边缘检测算子）"><a href="#Canny算子（边缘检测算子）" class="headerlink" title="Canny算子（边缘检测算子）"></a>Canny算子（边缘检测算子）</h2><p>通常情况下边缘检测的目的是在保留原有图像属性的情况下，显著减少图像的数据规模。目前有多种算法可以进行边缘检测，虽然Canny算法年代久远，但可以说它是边缘检测的一种标准算法，而且仍在研究中广泛使用。</p>
+<p>Canny算法是一种被广泛应用于边缘检测的标准算法，其目标是找到一个最优的边缘检测解或找寻一幅图像中灰度强度变化最强的位置。最优边缘检测主要通过低错误率、高定位性和最小响应三个标准进行评价。Canny算子的简要步骤如下：</p>
+<p>（1）去噪声：应用高斯滤波来平滑图像，目的是去除噪声</p>
+<p>（2）梯度：找寻图像的梯度</p>
+<p>（3）非极大值抑制：应用非最大抑制技术来过滤掉非边缘像素，将模糊的边界变得清晰。该过程保留了每个像素点上梯度强度的极大值，过滤掉其他的值。</p>
+<p>（4）应用双阈值的方法来决定可能的（潜在的）边界；</p>
+<p>（5）利用滞后技术来跟踪边界。若某一像素位置和强边界相连的弱边界认为是边界，其他的弱边界则被删除。</p>
+<p>代码示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_canny = cv2.Canny(gray, <span class="number">100</span>, <span class="number">150</span>) </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>edges &#x3D; Canny(image, threshold1, threshold2[, edges[, apertureSize[, L2gradient]]])</p>
+<p>其中，参数：</p>
+<p>mage 表示输入图像；</p>
+<p>edges 表示输出的边缘图，其大小和类型与输入图像相同；</p>
+<p>threshold1 表示第一个滞后性阈值；</p>
+<p>threshold2 表示第二个滞后性阈值；</p>
+<p>apertureSize 表示应用Sobel算子的孔径大小，其默认值为3；</p>
+<p>L2gradient 表示一个计算图像梯度幅值的标识，默认值为false。</p>
+</blockquote>
+<p>下面是运行结果图</p>
+<p><img src="/../img/Canny.jpg" alt="Canny" title="Canny算子锐化处理"></p>
+<br>
+
+<p>参考资料：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zaishuiyifangxym/article/details/90142702">(14条消息) 数字图像处理(20): 边缘检测算子(Canny算子)_TechArtisan6的博客-CSDN博客_数字图像处理边缘检测算子</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/meteor_93/article/details/107013339">(14条消息) Python 图像处理 OpenCV （12）： Roberts 算子、 Prewitt 算子、 Sobel 算子和 Laplacian 算子边缘检测技术_极客挖掘机的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51402531/article/details/121065044">(14条消息) OpenCv图像梯度——sobel算子(cv2.Sobel())_LGP是人间理想的博客-CSDN博客_opencv sobel算子</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">许铭鑫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/">http://example.com/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Xinxin的博客网站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/">图像锐化</a></div><div class="post_share"><div class="social-share" data-image="/./img/desk.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"><img class="prev-cover" src="/../img/desk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">图像的几何变换</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/22/%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0/"><img class="next-cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">图像噪声及去噪</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/wxHead.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">许铭鑫</div><div class="author-info__description">Love Yours&Living your life</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/woo0409"><i class="fab fa-github"></i><span>点我看看</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/woo0409" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1669340741@qq.com" target="_blank" title="qq邮箱"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/./img/wx.jpg" target="_blank" title="微信"><i class="fa-brands fa-weixin"></i></a><a class="social-icon" href="/./img/qq.jpg" target="_blank" title="qq"><i class="fa-brands fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">一、什么是图像锐化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二、图像锐化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E9%94%90%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">一阶锐化算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">处理方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A2%AF%E5%BA%A6%E5%A4%84%E7%90%86"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">基本梯度处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%96%B9%E5%90%91%E4%B8%80%E9%98%B6%E9%94%90%E5%8C%96%E7%AE%97%E5%AD%90"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">单方向一阶锐化算子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E6%96%B9%E5%90%91%E4%B8%80%E9%98%B6%E9%94%90%E5%8C%96%E7%AE%97%E5%AD%90"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">任意方向一阶锐化算子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E9%94%90%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">二阶锐化算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">处理方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Canny%E7%AE%97%E5%AD%90%EF%BC%88%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E7%AE%97%E5%AD%90%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">Canny算子（边缘检测算子）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/%E5%88%9D%E8%AF%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="初识人工智能"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="初识人工智能"/></a><div class="content"><a class="title" href="/2023/01/02/%E5%88%9D%E8%AF%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" title="初识人工智能">初识人工智能</a><time datetime="2023-01-02T15:01:25.000Z" title="发表于 2023-01-02 23:01:25">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/" title="图像的几何变换"><img src="/../img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像的几何变换"/></a><div class="content"><a class="title" href="/2022/12/25/%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/" title="图像的几何变换">图像的几何变换</a><time datetime="2022-12-25T10:51:26.000Z" title="发表于 2022-12-25 18:51:26">2022-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/" title="数字图像锐化"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字图像锐化"/></a><div class="content"><a class="title" href="/2022/12/24/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96/" title="数字图像锐化">数字图像锐化</a><time datetime="2022-12-24T11:14:24.000Z" title="发表于 2022-12-24 19:14:24">2022-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/22/%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0/" title="图像噪声及去噪"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像噪声及去噪"/></a><div class="content"><a class="title" href="/2022/12/22/%E5%9B%BE%E5%83%8F%E5%99%AA%E5%A3%B0/" title="图像噪声及去噪">图像噪声及去噪</a><time datetime="2022-12-22T08:27:45.000Z" title="发表于 2022-12-22 16:27:45">2022-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/21/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" title="数字图像增强"><img src="/./img/desk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字图像增强"/></a><div class="content"><a class="title" href="/2022/12/21/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/" title="数字图像增强">数字图像增强</a><time datetime="2022-12-21T15:25:17.000Z" title="发表于 2022-12-21 23:25:17">2022-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 许铭鑫</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
